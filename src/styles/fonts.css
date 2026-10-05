@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'AVFontimer';
+    src: url('../fonts/AVFontimer-Regular.ttf') format('truetype');  
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AVFontimer';
+    src: url('../fonts/AVFontimer-Bold.ttf') format('truetype');  
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Etude Noire';
+    src: url('../fonts/Etude Noire Bold.ttf') format('truetype');  
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Etude Noire';
+    src: url('../fonts/Etude Noire Medium.ttf') format('truetype');  
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,53 @@
+@import './fonts.css';
+
+.inputField{
+    border: 2px solid var(--color-green);
+    border-radius: 30px;
+    background-color: white;
+    height: 40px;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.search{
+    height: 22px;
+    margin-right: 15px;
+}
+
+.input{
+    border: none;
+    outline: none;              
+    background: transparent;
+    font-size: 18px;
+    font-family: AVFontimer;
+    font-weight: 400;
+    flex: 1;          
+    line-height: normal;
+}
+
+@media(max-width:1200px){
+.inputField{
+    height: 35px;
+    width: 65vw;
+}
+.search{
+    height: 20px;
+}
+}
+
+@media(max-width:600px){
+
+.inputField{
+    height: 30px;
+    width: 65vw;
+}
+.search{
+    height: 17px;
+    margin-right: 7px;
+}
+.input{
+   font-size: 14px;
+}
+}

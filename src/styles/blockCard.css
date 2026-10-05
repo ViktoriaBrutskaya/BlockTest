@@ -1,0 +1,119 @@
+@import './fonts.css';
+
+.blockCard{
+    width: 20vw;
+    aspect-ratio: 1.17/1;
+    border-radius: 30px;
+    padding-inline: 25px;
+    padding-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative; 
+    overflow: visible;
+}
+
+.blockCardName{
+    font-family: Etude Noire;
+    font-size: 16px;
+    color: var(--color-black);
+    max-height:65%;
+    padding-right: 50px;
+    flex: 1;
+    align-items: flex-start;
+    align-self: stretch; 
+    text-wrap: wrap;
+    
+}
+
+.openBlockButton{
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    border: none;
+    border-radius: 30px;
+    width: 90%;
+    height: 30px;
+    font-family: AVFontimer;
+    font-weight: 600;
+}
+
+.blockCardImage {
+  position: absolute;              
+  top: -30px;                    
+  right: -20px;  
+  width:70px;                  
+  max-width: 23%;                    
+  height: auto;     
+  z-index: 1;
+  pointer-events: none;           
+}
+
+@media(max-width:1200px){
+.blockCard{
+    width: 29vw;
+    padding-inline: 15px;
+    padding-top: 20px;
+}
+
+.blockCardName{
+    font-size: 14px;
+    padding-right: 30px;
+    max-height:70%;
+}
+.openBlockButton{
+    font-size: 12px;
+    height: 25px;
+}
+
+.blockCardImage {             
+  top: -15px;                    
+  right: -20px;  
+}
+}
+
+@media(max-width:600px){
+.blockCard{
+    width: 43vw;
+    padding-top: 15px;
+    padding-inline: 12px;
+    border-radius: 20px;
+}
+
+.blockCardName{
+    font-size: 12px;
+    padding-right: 10px;
+    max-height:75%;
+}
+
+.openBlockButton{
+    font-size: 10px;
+    height: 20px;
+}
+
+.blockCardImage {             
+  top: -15px;                    
+  right: -5px;  
+}
+}
+
+@media(max-width:340px){
+
+.blockCardName{
+    font-size: 10px;
+    padding-right: 10px;
+    max-height:70%;
+}
+
+.openBlockButton{
+    font-size: 10px;
+    height: 20px;
+}
+
+.blockCardImage {             
+  top: -15px;                    
+  right: -5px;  
+}
+}

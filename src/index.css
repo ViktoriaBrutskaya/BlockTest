@@ -1,13 +1,26 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  /* Цвета */
+  --color-red: #5D2435; 
+  --color-lime: #E2F07E;
+  --color-blue: #D5F4FF;
+  --color-green: #01524C;
+  --color-pink: #FFBDE3;
+  --color-orange: #EE6C4D;
+  --color-beige: #FAFFDB;
+  
+  --color-bg: #FBFFDC;
+  --color-black: #1C1A1C;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {       
+    line-height: 1.5;        
+    color: var(--color-black);
+    background-color: var(--color-bg);
 }
