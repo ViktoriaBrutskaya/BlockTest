@@ -1,0 +1,77 @@
+.leftText{
+    font-size: 40px;
+    font-family: Etude Noire;
+    font-weight: 600;
+}
+.time-text{
+    margin-right: 20px;
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.time{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.testBlock{
+    width:70%;
+    background-image: url("../images/desctop_note.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    overflow: hidden;
+    
+}
+
+
+
+@media(max-width:1200px){
+.time{
+    width: 100%;
+}
+.leftText{
+    font-size: 35px;
+}
+.time-text{
+    flex-direction: column;
+    margin-top: -50px;
+     align-items: center;
+}
+
+.testBlock{
+    width:95%;
+    height: auto;
+    min-height:60vh;
+    max-height:80vh;
+    background-image: url("../images/tablet_note.png");
+
+    margin-left: 5%;
+}
+}
+
+@media(max-width:600px){
+
+.leftText{
+    font-size: 25px;
+}
+.time-text{
+    margin-top: -15px;
+}
+
+.testBlock{
+    width:95%;
+    height: auto;
+    max-height:80vh;
+    background-image: url("../images/phone_note.png");
+
+    margin-left: 5%;
+}
+}

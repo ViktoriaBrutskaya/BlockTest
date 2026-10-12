@@ -1,0 +1,100 @@
+@import './fonts.css';
+
+.testCard{
+    width: 37vw;
+    aspect-ratio: 5/3;
+    background-color: var(--color-blue);
+    border-radius: 30px;
+    padding-inline: 25px;
+    padding-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    position: relative; 
+    overflow: visible;
+
+    box-shadow: 6px 7px 4px 0px rgba(0, 0, 0, 0.25);
+
+    margin-left: 55px;
+    z-index: 1;
+}
+
+.testCardName{
+    font-family: Etude Noire;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--color-black);
+    max-height:60%;
+    padding-right: 50px;
+    flex: 1;
+    align-items: flex-start;
+    align-self: stretch; 
+    text-wrap: wrap;   
+}
+
+.blockText{
+    font-family: AVFontimer;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.orange{
+    font-family: Etude Noire;
+    color: var(--color-orange);
+    font-weight: 600;
+}
+
+.medium{
+    font-weight: 400;
+}
+
+.testCardImage {
+  position: absolute;              
+  top: -60px;                    
+  right: -60px;  
+  width:150px;                                 
+  height: auto;     
+  z-index: 1;
+  pointer-events: none;           
+}
+
+@media(max-width:1260px){
+.testCard{
+    width: 80vw;
+    aspect-ratio: 2/1;
+    margin-inline: auto;
+}
+
+.testCardName{
+    font-size: 24px;
+}
+
+}
+
+@media(max-width:600px){
+.testCard{
+    width: 88vw;
+    aspect-ratio: 5/3;
+    margin-inline: auto;
+    padding-inline: 20px;
+    padding-top: 20px;
+    border-radius: 15px;
+}
+.testCardName{
+    font-size: 16px;
+    padding-right: 30px;
+}
+
+.blockText{
+    font-size: 14px;
+}
+
+.testCardImage {            
+  top: -40px;                    
+  right: -15px;  
+  width:80px;                                           
+}
+
+}

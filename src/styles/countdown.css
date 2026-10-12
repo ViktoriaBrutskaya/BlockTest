@@ -1,0 +1,20 @@
+.countdown {
+    font-family: Etude Noire;
+    font-size: 70px;
+    font-weight: 600;
+    color: var(--color-orange);
+}
+
+@media(max-width:1200px){
+
+.countdown {
+    font-size: 55px;
+}
+}
+
+@media(max-width:1200px){
+
+.countdown {
+    font-size: 35px;
+}
+}

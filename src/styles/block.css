@@ -1,0 +1,137 @@
+.blockWrapper{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.decor-bottom-right {
+    position: absolute;
+    bottom:0px;
+    right: 0px;
+    width: 75vw;
+    pointer-events: none;
+    z-index: 0; 
+}
+
+.orangeArrow{
+    height: 15px;
+    margin-right: 20px;
+}
+
+.backToBlocks{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-left: 55px;
+    margin-bottom: 50px;
+    margin-top: -50px;
+}
+
+.decorImage{
+    width: 350px;
+    margin-bottom: 50px;
+    z-index: 1;
+    order:1;
+}
+
+.displayBlock{
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+}
+
+.imageAndButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}   
+
+.startTest{
+    background-color: var(--color-orange);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 30px;
+    width: 500px;
+    height: 60px;
+    font-family: AVFontimer;
+    font-weight: 600;
+    z-index: 1;
+    transition: background-color 0.3s;
+
+    order:2;
+}
+
+.startTest:hover{
+    cursor: pointer;
+    background-color: #d1583a;
+}
+
+
+
+@media(max-width:1260px){
+.decor-bottom-right {
+    width: 95vw;
+}
+.backToBlocks{
+    margin-left: 30px;
+    margin-bottom: 70px;
+    margin-top: -30px;
+}
+
+.displayBlock{
+    flex-direction: column;
+    gap: 50px;
+}
+
+.decorImage{
+    order:2;
+}
+
+.startTest{
+    font-size: 24px;
+    border: none;
+    border-radius: 30px;
+    width: 50vw;
+    height: 60px;
+    margin-bottom: 20px;
+
+    order:1;
+}
+}
+
+@media(max-width:500px){
+.decor-bottom-right {
+    width: 170vw;
+    right: -20vw;
+    bottom:0px;
+    rotate: -20deg;
+}
+
+.backToBlocks{
+    margin-left: 18px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.displayBlock{
+    gap: 20px;
+}
+
+.startTest{
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    width: 70vw;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.decorImage{
+    width: 80vw;
+    order:2;
+}
+}

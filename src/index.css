@@ -23,4 +23,6 @@ body {
     line-height: 1.5;        
     color: var(--color-black);
     background-color: var(--color-bg);
+    overflow-x: hidden;
+    max-width: 100%;
 }
