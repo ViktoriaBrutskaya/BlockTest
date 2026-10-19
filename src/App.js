@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
           <Routes>
             <Route path="/" element={<Main/>} />
-            <Route path="/block" element={<Block/>} />
-            <Route path="/test" element={<Test/>} />
+            <Route path="/block/:id" element={<Block/>} />
+            <Route path="/test/:testId" element={<Test/>} />
           </Routes>
     </BrowserRouter>
   );

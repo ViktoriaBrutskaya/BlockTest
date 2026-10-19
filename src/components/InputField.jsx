@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import search from "../images/search.png";
+import '../styles/inputField.css';
 
-import search from "../images/search.png"
-
-import '../styles/inputField.css'
-
-const InputField = () => {
-
-const [value, setValue] = useState('');
-    
-return (
+// Принимаем пропсы из Main
+const InputField = ({ value, onChange, onKeyDown, placeholder }) => {
+  return (
     <div className="inputField">
         <img src={search} className="search" alt="search"/>
         <input
         type="text"
         className="input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Введите название..."
+        value={value}            // Берем значение из Main
+        onChange={onChange}      // Передаем событие ввода в Main
+        onKeyDown={onKeyDown}    // Передаем нажатие Enter в Main
+        placeholder={placeholder || "Введите название..."}
       />
     </div>
- );
+  );
 };
 
 export default InputField;

@@ -1,27 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/blockCard.css';
 
-import '../styles/blockCard.css'
 
-import lamp from "../images/lamp.png"
+import defaultLamp from "../images/lamp.png";
 
 const BlockCard = ({
-    id="1", 
-    text="Алгоритмы в деталях: мастерская Google Blockly", 
-    color="var(--color-pink)", 
-    image="lamp"
+    id, 
+    text, 
+    color = "var(--color-pink)", 
+    imageUrl
 }) => {
 
-const cardStyle={
+  const cardStyle = {
     backgroundColor: color,
-}
+  };
 
-return (
+  const imgSrc = imageUrl ? imageUrl : defaultLamp; 
+
+  return (
     <div className="blockCard" style={cardStyle}>
-        <img src={lamp} className='blockCardImage'/>
-        <p className='blockCardName'>{text}</p>
-        <button className="openBlockButton">Открыть тест</button>
+      <img src={imgSrc} className='blockCardImage' alt={text} />
+      <p className='blockCardName'>{text}</p>
+      
+      <Link to={`/block/${id}`} className="openBlockButton" style={{ textDecoration: 'none' }}>
+        Открыть тест
+      </Link>
     </div>
- );
+  );
 };
 
 export default BlockCard;

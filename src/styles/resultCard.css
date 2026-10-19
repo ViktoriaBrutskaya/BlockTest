@@ -1,0 +1,99 @@
+.resultCard{
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--color-blue);
+    border-radius: 30px;
+    padding-inline: 25px;
+    padding-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    position: relative; 
+    overflow: visible;
+
+    box-shadow: 6px 7px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+
+.testCardNameRes{
+    font-family: Etude Noire;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-black);
+    max-height:50%;
+    padding-right: 50px;
+    flex: 1;
+    align-items: flex-start;
+    align-self: stretch; 
+    text-wrap: wrap; 
+}
+
+.star{
+    width: 30px;   
+}
+
+.starsContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 5px;       
+}
+
+.resultRow {
+    display: flex;          
+    align-items: flex-start;
+    gap: 10px;              
+    margin-top: 5px;
+}
+
+.resultRow .blockText {
+    white-space: nowrap;   
+    flex-shrink: 0;        
+    margin: 0;             
+}   
+
+@media(max-width:1400px){
+.resultCard{
+    width: 100%;
+    aspect-ratio: 4/5;
+}
+
+
+}
+
+@media(max-width:1200px){
+.resultCard{
+    width: 100%;
+    aspect-ratio: 2/1;
+}
+  
+}
+
+@media(max-width:600px){
+
+.resultCard{
+    width: 100%;
+    aspect-ratio: 3/2.5;
+    border-radius: 20px;
+    padding-inline: 25px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    position: relative; 
+    overflow: visible;
+
+    box-shadow: 6px 7px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+.star{
+    width: 20px;   
+}
+.testCardNameRes{
+    font-size: 16px;  
+    max-height:50%;
+    padding-right: 50px;
+} 
+}

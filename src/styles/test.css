@@ -24,10 +24,9 @@
 .testBlock{
     width:70%;
     position: relative;
-    display: flex;  
+    display: flex;
     flex-direction: column;
     overflow: hidden;
-
 }
 
 .bgDesctop{
@@ -45,9 +44,7 @@
 .bgImg{
     z-index: 0;
     position: absolute
-    
 }
-
 
 .test-content {
     position: relative;
@@ -57,6 +54,7 @@
     flex-direction: column;
     gap: 28px;
     overflow-y: auto;
+    scrollbar-width:none;
     height: 99%;
     margin-top: auto;
     box-sizing: border-box;
@@ -71,7 +69,6 @@
     text-align: center;
 }
 
-/* Вопрос */
 .question-box {
     display: flex;
     flex-direction: column;
@@ -86,7 +83,6 @@
     margin: 0;
 }
 
-/* Список ответов */
 .options {
     display: flex;
     flex-direction: column;
@@ -94,7 +90,6 @@
     padding-left: 24px;
 }
 
-/* Кружок */
 .round-check {
     display: inline-flex;
     align-items: center;
@@ -121,6 +116,7 @@
     flex-shrink: 0;
     transition: background 0.15s ease, border-color 0.15s ease;
     background: #fff;
+    position: relative;
 }
 
 .round-check:hover .round-check__mark {
@@ -143,7 +139,6 @@
     color: #1a1a1a;
 }
 
-
 .finish-btn {
     align-self: center;
     margin-top: 20px;
@@ -162,83 +157,162 @@
     background: #d95b3c;
 }
 
+.desktopResult {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.round-check.correct input + .round-check__mark,
+.round-check.correct input:checked + .round-check__mark {
+    background: var(--color-green);
+    border-color: var(--color-green);
+}
+
+.round-check.correct .round-check__label {
+    color: var(--color-green);
+    font-weight: 600;
+}
+
+.round-check.wrong input + .round-check__mark,
+.round-check.wrong input:checked + .round-check__mark {
+    background: var(--color-red);
+    border-color: var(--color-red);
+}
+
+.round-check.wrong .round-check__label {
+    color: var(--color-red);
+    font-weight: 600;
+}
+
+.round-check.missed input + .round-check__mark,
+.round-check.missed input:checked + .round-check__mark {
+    background: #fff;
+    border-color: var(--color-orange);
+}
+
+.round-check.missed .round-check__mark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-orange);
+    opacity: 0.6;
+}
+
+.round-check.missed .round-check__label {
+    color: var(--color-orange);
+    font-weight: 600;
+    font-style: italic;
+}
+
+.round-check input:disabled + .round-check__mark {
+    opacity: 1;
+}
+
+.finish-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+
+
 @media(max-width:1200px){
-.time{
-    width: 100%;
-}
-.leftText{
-    font-size: 35px;
-}
-.time-text{
-    flex-direction: column;
-    margin-top: -50px;
-     align-items: center;
-}
+      .desktopResult {
+        display: none;
+    }
 
-.testBlock{
-    width:95%;
-    margin-left: 5%;
-}
+    .testBlock.fullWidth {
+        width: 95%;
+        margin-left: 5%;
+    }
 
-.bgDesctop{
-    display: none;
-}
-    
+    .time{
+        width: 100%;
+    }
+    .leftText{
+        font-size: 35px;
+    }
+    .time-text{
+        flex-direction: column;
+        margin-top: -50px;
+        align-items: center;
+    }
 
-.bgTablet{
-    display: block;
-    width: 100%;
-}
+    .testBlock{
+        width:95%;
+        margin-left: 5%;
+    }
 
-.bgPhone{
-    display: none;
-}
+    .bgDesctop{
+        display: none;
+    }
+
+    .bgTablet{
+        display: block;
+        width: 100%;
+    }
+
+    .bgPhone{
+        display: none;
+    }
 }
 
 @media(max-width:600px){
 
-.leftText{
-    font-size: 25px;
-}
-.time-text{
-    margin-top: -15px;
-}
+    .leftText{
+        font-size: 25px;
+    }
+    .time-text{
+        margin-top: -15px;
+    }
 
-.bgDesctop{
-    display: none;
-}
-    
-.bgTablet{
-    display: none;
-    
-}
-.bgPhone{
-    display: block;
-   width: 100%;
-}
+    .bgDesctop{
+        display: none;
+    }
 
-.testName{
-    font-size: 18px;
-}
+    .bgTablet{
+        display: none;
+    }
+    .bgPhone{
+        display: block;
+        width: 100%;
+    }
 
-.question {
-    font-size: 16px;
-}
+    .testName{
+        font-size: 18px;
+    }
 
-.round-check__mark {
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--color-green);
-}
+    .question {
+        font-size: 14px;
+    }
 
-.test-content {
-    padding: 20px 5% 20px;
-    gap: 22px;
-}
-.finish-btn {
-    margin-top: 10px;
-    padding: 10px 40px;
-    font-size: 16px;
-    font-weight: 600;
-}
+    .round-check__mark {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--color-green);
+    }
+
+    .round-check.missed .round-check__mark::after {
+        width: 8px;
+        height: 8px;
+    }
+
+    .test-content {
+        padding: 20px 5% 20px;
+        gap: 22px;
+    }
+    .finish-btn {
+        margin-top: 10px;
+        padding: 10px 40px;
+        font-size: 16px;
+        font-weight: 600;
+    }
 }
