@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/countdown.css';
 
 const Countdown = ({ minutes: initialMinutes = 15, onFinish }) => {
     
     const totalSeconds = initialMinutes * 60;
     const [timeLeft, setTimeLeft] = useState(totalSeconds);
+    const finishedRef = useRef(false);
 
     useEffect(() => {
         if (timeLeft <= 0) {
-            if (onFinish) onFinish();
+            if (onFinish && !finishedRef.current) {
+                finishedRef.current = true;
+                onFinish();
+            }
             return;
         }
 
