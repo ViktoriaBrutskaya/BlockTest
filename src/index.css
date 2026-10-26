@@ -26,3 +26,12 @@ body {
     overflow-x: hidden;
     max-width: 100%;
 }
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+}

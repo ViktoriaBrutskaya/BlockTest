@@ -25,6 +25,7 @@
     font-weight: 400;
     flex: 1;          
     line-height: normal;
+    padding-top: 3px;
 }
 
 @media(max-width:1200px){

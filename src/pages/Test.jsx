@@ -84,16 +84,20 @@ const Test = () => {
         }
     };
 
-    const getOptionState = (question, optionId, isChecked) => {
+        const getOptionState = (question, optionId, isChecked) => {
         if (!isFinished) return '';
 
+        const isThisOptionCorrect = answers[`correct_${question.id}_${optionId}`] === true;
+
+
         if (isChecked) {
-            if (answers[`result_${question.id}`] === true) return 'correct';
-            if (answers[`result_${question.id}`] === false) return 'wrong';
+            if (isThisOptionCorrect) return 'correct';
+            return 'wrong';
         }
 
-        if (!isChecked && answers[`correct_${question.id}_${optionId}`]) {
-            return 'missed';
+        
+        if (!isChecked && isThisOptionCorrect) {
+            return 'missed'; 
         }
 
         return '';

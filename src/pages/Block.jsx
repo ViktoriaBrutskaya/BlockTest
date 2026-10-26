@@ -67,7 +67,7 @@ const Block = () => {
             <Link to={`/test/${testData?.id}`} 
             state={{ blockTitle: blockTitle }}
             className='startTest' 
-            style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center',color: 'white' }}>
                 Начать тест
             </Link>
         </div>
