@@ -65,7 +65,7 @@ const Block = () => {
         <div className='imageAndButton'>
             <img src={desctop} className='decorImage' alt="desctop"/>
             <Link to={`/test/${testData?.id}`} 
-            state={{ blockTitle: blockTitle }}
+            state={{ blockTitle: blockTitle, durationMinutes: testData?.duration_minutes }}
             className='startTest' 
             style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center',color: 'white' }}>
                 Начать тест

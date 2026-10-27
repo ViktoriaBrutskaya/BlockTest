@@ -26,8 +26,10 @@ const Test = () => {
     const [loading, setLoading] = useState(true);
     const [isFinishing, setIsFinishing] = useState(false);
     const [error, setError] = useState(null);
+    const [finishError, setFinishError] = useState(null);
 
     const blockTitle = location.state?.blockTitle || 'Прохождение теста';
+    const durationMinutes = location.state?.durationMinutes;
 
     useEffect(() => {
         getTestQuestions(testId)
@@ -73,12 +75,12 @@ const Test = () => {
                 optionId: optionId
             });
             
-            if (res.is_correct) {
-                setAnswers(prev => ({
-                    ...prev,
-                    [`correct_${question.id}_${optionId}`]: true
-                }));
-            }
+            // checked_ — вариант проверен, повторно на «Завершить» его не спрашиваем.
+            setAnswers(prev => ({
+                ...prev,
+                [`checked_${question.id}_${optionId}`]: true,
+                ...(res.is_correct ? { [`correct_${question.id}_${optionId}`]: true } : {})
+            }));
         } catch (err) {
             console.error('Ошибка проверки ответа:', err);
         }
@@ -104,6 +106,8 @@ const Test = () => {
     };
 
     const finish = async () => {
+        // Завершить может и кнопка, и таймер — второй раз не начинаем.
+        if (isFinished || isFinishing) return;
         setIsFinishing(true);
 
         const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -111,47 +115,50 @@ const Test = () => {
         const newAnswers = { ...answers };
 
 
+        // Проверяем всё, что ещё не проверено: невыбранные варианты и выбранные,
+        // если их проверка при клике не дошла до сервера.
         const optionsToCheck = [];
         questions.forEach(q => {
             q.options.forEach(opt => {
-                const isChecked = (answers[q.id] || []).includes(opt.id);
-                if (!isChecked) {
+                if (!answers[`checked_${q.id}_${opt.id}`]) {
                     optionsToCheck.push({ qId: q.id, optId: opt.id });
                 }
             });
         });
 
+        let failed = false;
         for (let i = 0; i < optionsToCheck.length; i++) {
             const { qId, optId } = optionsToCheck[i];
             try {
+                // На 429 apiFetch сам ждёт и повторяет запрос.
                 const res = await checkAnswer({
                     testId: Number(testId),
                     questionId: qId,
                     optionId: optId
                 });
-                
+
+                newAnswers[`checked_${qId}_${optId}`] = true;
                 if (res.is_correct) {
                     newAnswers[`correct_${qId}_${optId}`] = true;
                 }
             } catch (err) {
-                if (err.status === 429) {
-                    await delay(100);
-                    try {
-                        const retryRes = await checkAnswer({
-                            testId: Number(testId),
-                            questionId: qId,
-                            optionId: optId
-                        });
-                        if (retryRes.is_correct) {
-                            newAnswers[`correct_${qId}_${optId}`] = true;
-                        }
-                    } catch (retryErr) {
-                        console.error('Повторная ошибка:', retryErr);
-                    }
-                }
+                console.error('Ошибка проверки ответа:', err);
+                failed = true;
+                break;
             }
             await delay(50);
         }
+
+        if (failed) {
+            // Непроверенный вариант нельзя считать неверным — ребёнок увидел бы
+            // заниженный результат. Проверенное сохраняем: повторное «Завершить»
+            // доспросит только остальное.
+            setAnswers(newAnswers);
+            setFinishError('Не удалось проверить ответы. Проверьте интернет и нажмите «Завершить» ещё раз.');
+            setIsFinishing(false);
+            return;
+        }
+        setFinishError(null);
 
         questions.forEach(q => {
             const userAns = answers[q.id] || [];
@@ -206,7 +213,7 @@ const Test = () => {
                 {!isFinished && (
                     <div className='time'>
                         <p className='leftText'>Осталось:</p>
-                        <Countdown />
+                        <Countdown minutes={durationMinutes} onFinish={finish} />
                     </div>
                 )}
 
@@ -274,6 +281,9 @@ const Test = () => {
                         >
                             {isFinishing ? 'Проверка...' : 'Завершить'}
                         </button>
+                        {finishError && (
+                            <p style={{ color: 'red', textAlign: 'center' }}>{finishError}</p>
+                        )}
                     </div>
                 </div>
             </div>
